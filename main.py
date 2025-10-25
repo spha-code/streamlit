@@ -62,6 +62,7 @@ try:
 
     # ---------- Data Table ----------
     st.subheader("📄 Data Preview")
+    # Pandas df
     st.dataframe(df, use_container_width=True)
 
     # ---------- Example Visualization ----------
@@ -75,6 +76,11 @@ try:
             height=500
         )
         st.plotly_chart(fig, use_container_width=True)
+    
+    # ---------- Metrics ----------
+    st.subheader("Metrics")
+    st.metric(label="Total Rows", value=len(df))
+    
 
 except FileNotFoundError:
     st.error(f"❌ File not found at: {csv_path}")
