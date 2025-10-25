@@ -81,7 +81,21 @@ try:
     # ---------- Metrics ----------
     st.subheader("Metrics")
     st.metric(label="Total Rows", value=len(df))
+
+    # ---------- Charts ----------
+    st.subheader("Area Chart")
     
+    chart_data = pd.DataFrame(
+        np.random.randn(20,3),
+        columns  =['','','']
+    ) 
+
+    st.subheader("Bar Chart")
+    st.bar_chart(chart_data)
+
+    st.subheader("Area Chart")
+    st.bar_chart(chart_data)
+
 
 except FileNotFoundError:
     st.error(f"❌ File not found at: {csv_path}")
