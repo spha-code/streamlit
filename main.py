@@ -5,9 +5,6 @@ import plotly.express as px
 
 st.set_page_config(page_title="📊 Cryptocurrency Dashboard", page_icon="💰", layout="wide")
 
-st.subheader("Hourly crypto & stock data, updated hourly — unlock insights, trends & forecasts")
-st.subheader("source: https://www.kaggle.com/datasets/adrianjuliusaluoch/hourly-crypto-stocks-market-data")
-
 # ---------- Load CSV ----------
 csv_path = os.path.join("csv", "cryptocurrency.csv")
 
@@ -34,6 +31,9 @@ try:
     numeric_cols = df.select_dtypes(include=["float64", "int64"]).columns.tolist()
 
     st.title("💹 Cryptocurrency Analytics Dashboard")
+
+    st.subheader("Hourly crypto & stock data, updated hourly — unlock insights, trends & forecasts")
+    st.subheader("source: https://www.kaggle.com/datasets/adrianjuliusaluoch/hourly-crypto-stocks-market-data")
 
     # ---------- Summary Metrics ----------
     col1, col2, col3 = st.columns(3)
