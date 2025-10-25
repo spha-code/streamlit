@@ -3,6 +3,8 @@ import pandas as pd
 import os
 import plotly.express as px
 
+#Comment
+
 st.set_page_config(page_title="📊 Cryptocurrency Dashboard", page_icon="💰", layout="wide")
 
 # ---------- Load CSV ----------
