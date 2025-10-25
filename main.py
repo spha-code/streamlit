@@ -102,9 +102,6 @@ try:
     st.subheader("Bar Chart")
     st.bar_chart(chart_data)
 
-    st.subheader("Area Chart")
-    st.area_chart(chart_data)
-
     st.subheader("Line Chart")
     st.line_chart(chart_data)
 
