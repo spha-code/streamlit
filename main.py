@@ -1,4 +1,5 @@
 import streamlit as st
+import numpy as np
 import pandas as pd
 import os
 import matplotlib.pyplot as plt
@@ -66,6 +67,14 @@ try:
     # Pandas df
     st.dataframe(df, use_container_width=True)
 
+    st.write("### Columns:")
+    st.write(df.columns.tolist())  # as a list
+
+    # Or display one per line
+    st.text("Columns:")
+    for col in df.columns:
+        st.text(f"- {col}")
+
     # ---------- Example Visualization ----------
     if "market_cap" in df.columns and "name" in df.columns and pd.api.types.is_numeric_dtype(df["market_cap"]):
         fig = px.bar(
@@ -87,15 +96,20 @@ try:
     
     chart_data = pd.DataFrame(
         np.random.randn(20,3),
-        columns  =['','','']
+        columns  =['name','symbol','price_usd']
     ) 
 
     st.subheader("Bar Chart")
     st.bar_chart(chart_data)
 
     st.subheader("Area Chart")
-    st.bar_chart(chart_data)
+    st.area_chart(chart_data)
 
+    st.subheader("Line Chart")
+    st.line_chart(chart_data)
+
+    #st.subheader("PyPlot Chart")
+    #st.pyplot(fig)
 
 except FileNotFoundError:
     st.error(f"❌ File not found at: {csv_path}")
